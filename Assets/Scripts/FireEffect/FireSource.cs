@@ -2,20 +2,26 @@ using UnityEngine;
 
 public class FireSource : MonoBehaviour
 {
-    [SerializeField] ParticleSystem sparks;
-    [SerializeField] float sparkLifetime = 3f;
-    [SerializeField] float sparkSpreadRadius = 2f;
+    ParticleSystem sparks;
 
-    public void Ignite()
+    private void Awake()
     {
-        sparks.Play();
+        sparks = GetComponent<ParticleSystem>();
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Flammable"))
+        if (other.CompareTag("Player"))
         {
-            other.GetComponent<FlammableObject>().Ignite();
+            sparks.Play();
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            sparks.Stop();
         }
     }
 }
