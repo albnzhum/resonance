@@ -6,10 +6,23 @@ public class Leaves : MonoBehaviour, IInteractableTouching
 {
     [SerializeField] AudioSource _audioSource;
     [SerializeField] AudioClip _clip;
+    [SerializeField] Bird _bird;
 
-    public void Interact()
+    [SerializeField][Range(0, 1)] float _highVolume; 
+    [SerializeField][Range(0, 1)] float _lowVolume; 
+
+    public void Interact(Player player)
     {
-        _audioSource.PlayOneShot(_clip);
+        if (player.IsRunning)
+        {
+            _audioSource.volume = _highVolume;
+            _bird.TakeOff();
+        }
+        else
+        {
+            _audioSource.volume = _lowVolume;
+        }
+        _audioSource.PlayOneShot(_clip);     
         Debug.Log("листья");
     }
 }
