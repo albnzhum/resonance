@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class ParticleTrigger : MonoBehaviour
 {
-    ParticleSystem ps;
+    [SerializeField] ParticleSystem ps;
     [SerializeField] GameObject waterTrigger;
     [SerializeField] GameObject treeTrigger;
 
@@ -12,8 +12,6 @@ public class ParticleTrigger : MonoBehaviour
 
     void Awake()
     {
-        ps = GetComponent<ParticleSystem>();
-
         waterCollider = waterTrigger.GetComponent<Collider>();
         treeCollider = treeTrigger.GetComponent<Collider>();
     }
@@ -32,6 +30,7 @@ public class ParticleTrigger : MonoBehaviour
 
             if (waterCollider != null && waterCollider.bounds.Contains(particlePos))
             {
+                Debug.Log("Particle on water");
                 shouldDelete = true;
             }
             else if (treeCollider != null && treeCollider.bounds.Contains(particlePos))
