@@ -4,6 +4,7 @@ using System.Collections;
 public class FireSource : MonoBehaviour
 {
     [SerializeField] ParticleSystem sparks;
+    [SerializeField] AudioSource sparksAudioSource;
     [SerializeField] float restartInterval = 0.5f;
     private Coroutine restartCoroutine;
 
@@ -12,6 +13,7 @@ public class FireSource : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             sparks.Play();
+            sparksAudioSource.Play();
             restartCoroutine = StartCoroutine(RestartParticles());
         }
     }
@@ -26,6 +28,7 @@ public class FireSource : MonoBehaviour
                 restartCoroutine = null;
             }
             sparks.Stop();
+            sparksAudioSource.Stop();
         }
     }
 
