@@ -10,15 +10,15 @@ public class VolumeController : MonoBehaviour
     [SerializeField] AudioMixer mainMixer;
 
     [Header("Toggles")]
-    [SerializeField] Toggle effectsActive;
-    [SerializeField] Toggle musicActive;
+    [SerializeField] ToggleController effectsActive;
+    [SerializeField] ToggleController musicActive;
 
     [Header("Audio sliders")]
     [SerializeField] Slider effectsSlider;
     [SerializeField] Slider musicSlider;
 
-    public bool GetEffectsToggle() => effectsActive.isOn;
-    public bool GetMusicToggle() => musicActive.isOn;
+    public bool GetEffectsToggle() => effectsActive.IsOn;
+    public bool GetMusicToggle() => musicActive.IsOn;
     public float GetEffectsValue() => effectsSlider.value;
     public float GetMusicValue() => musicSlider.value;
 
@@ -27,10 +27,10 @@ public class VolumeController : MonoBehaviour
         switch (numOfSlider)
         {
             case 0:
-                SetAudioLvlBySlider(0, effectsSlider.value, effectsActive.isOn);
+                SetAudioLvlBySlider(0, effectsSlider.value, effectsActive.IsOn);
                 break;
             case 1:
-                SetAudioLvlBySlider(1, musicSlider.value, musicActive.isOn);
+                SetAudioLvlBySlider(1, musicSlider.value, musicActive.IsOn);
                 break;
         }
     }
@@ -41,13 +41,13 @@ public class VolumeController : MonoBehaviour
         {
             case 0:
                 mainMixer.SetFloat("EffectsVolume", sliderValue);
-                effectsActive.isOn = toggleActive;
+                effectsActive.SetOnOff(toggleActive);
                 effectsActive.GetComponent<ToggleSliderController>().SetupSlider();
                 effectsSlider.value = sliderValue;
                 break;
             case 1:
                 mainMixer.SetFloat("MusicVolume", sliderValue);
-                musicActive.isOn = toggleActive;
+                musicActive.SetOnOff(toggleActive);
                 musicActive.GetComponent<ToggleSliderController>().SetupSlider();
                 musicSlider.value = sliderValue;
                 break;

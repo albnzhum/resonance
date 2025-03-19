@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,6 +18,11 @@ public class HoverTextVisual : MonoBehaviour
 
         pointerObserver.PointerEntered += OnPointerEnter;
         pointerObserver.PointerExited += OnPointerExit;
+    }
+
+    private void OnDisable()
+    {
+        _textHover.SetBool(IsHovering, false);
     }
 
     public void OnPointerExit(PointerEventData eventData)

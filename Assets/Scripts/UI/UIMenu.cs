@@ -6,12 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class UIMenu : MonoBehaviour
 {
-    [SerializeField] private GameObject _settingsController;
     [SerializeField] LoadingScreen loadingScreen;
 
     private void OnEnable()
     {
         loadingScreen = LoadingScreen.instance;
+        //_animator.StartPlayback();
     }
 
     public void StartGame()
@@ -52,12 +52,7 @@ public class UIMenu : MonoBehaviour
 
         //asyncLoad.allowSceneActivation = true;
     }
-
-
-    public void OpenSettings()
-    {
-        _settingsController.SetActive(true);
-    }
+    
 
     public void Quit()
     {
