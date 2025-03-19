@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Crow : MonoBehaviour
+public class Bird : MonoBehaviour
 {
     [SerializeField] Transform _distination;
-
+    [SerializeField] Animator _animator;
     [SerializeField] float flySpeed = 5f;  // Скорость полета вороны
     [SerializeField] float heightOffset = 2f;  // Отступ по высоте (чтобы ворона летела снизу вверх)
     private bool isFlying = false;
@@ -20,14 +20,16 @@ public class Crow : MonoBehaviour
     }
 
     // Этот метод вызывается при шелесте листьев
-    public void StartFlying()
+    public void TakeOff()
     {
 
         // Рассчитываем цель (точка назначения рычага + смещение по высоте)
         Vector3 targetPosition = _distination.position + Vector3.up * heightOffset;
 
         // Логика активации полета
-        isFlying = true;
+        //isFlying = true;
+
+        _animator.SetTrigger("TakeOff");
     }
 
     private void FlyTowardsLever()
@@ -42,6 +44,7 @@ public class Crow : MonoBehaviour
         if (Vector3.Distance(transform.position, targetPosition) < 0.1f)
         {
             isFlying = false;  // Полет завершен
+            _animator.SetTrigger("Land");
         }
     }
 }
