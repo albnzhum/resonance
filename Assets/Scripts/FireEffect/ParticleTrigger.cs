@@ -4,45 +4,56 @@ using UnityEngine;
 public class ParticleTrigger : MonoBehaviour
 {
     ParticleSystem ps;
-    List<ParticleSystem.Particle> inside = new List<ParticleSystem.Particle>();
+    [SerializeField] GameObject waterTrigger;
+    [SerializeField] GameObject treeTrigger;
 
-    void Start()
+    private Collider waterCollider;
+    private Collider treeCollider;
+
+    void Awake()
     {
         ps = GetComponent<ParticleSystem>();
+
+        waterCollider = waterTrigger.GetComponent<Collider>();
+        treeCollider = treeTrigger.GetComponent<Collider>();
     }
 
-    void OnParticleTrigger()
+    void Update()
     {
-        int numInside = ps.GetTriggerParticles(ParticleSystemTriggerEventType.Inside, inside);
+        ParticleSystem.Particle[] particles = new ParticleSystem.Particle[ps.main.maxParticles];
+        int numParticlesAlive = ps.GetParticles(particles);
 
-        if (numInside > 0)
+        int newCount = 0;
+
+        for (int i = 0; i < numParticlesAlive; i++)
         {
-            var triggerModule = ps.trigger;
-            int colliderCount = triggerModule.colliderCount;
+            Vector3 particlePos = particles[i].position;
+            bool shouldDelete = false;
 
-            for (int i = 0; i < numInside; i++)
+            if (waterCollider != null && waterCollider.bounds.Contains(particlePos))
             {
-                ParticleSystem.Particle particle = inside[i];
-                Collider trigger = GetTriggerForParticle(particle, triggerModule, colliderCount);
-                if (trigger != null)
-                {
-                    Debug.Log($"Частица на позиции {particle.position} находится в триггере: {trigger.name}");
-                }
+                shouldDelete = true;
             }
+            else if (treeCollider != null && treeCollider.bounds.Contains(particlePos))
+            {
+                OnParticleHitTree(particlePos);
+            }
+
+            if (!shouldDelete)
+            {
+                particles[newCount] = particles[i];
+                newCount++;
+            }
+        }
+
+        if (newCount != numParticlesAlive)
+        {
+            ps.SetParticles(particles, newCount);
         }
     }
 
-    Collider GetTriggerForParticle(ParticleSystem.Particle particle, ParticleSystem.TriggerModule triggerModule, int colliderCount)
+    void OnParticleHitTree(Vector3 particlePosition)
     {
-        for (int j = 0; j < colliderCount; j++)
-        {
-            var triggerObj = triggerModule.GetCollider(j);
-            Collider trigger = triggerObj.gameObject.GetComponent<Collider>();
-            if (trigger != null && trigger.bounds.Contains(particle.position))
-            {
-                return trigger;
-            }
-        }
-        return null;
+        treeTrigger.gameObject.GetComponent<TreeOnFire>().ParticlesOnFire();
     }
 }
