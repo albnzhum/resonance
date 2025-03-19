@@ -4,6 +4,7 @@ using UnityEngine;
 
 public interface IInteractableTouching
 {
-    public void Interact();
+    public void Interact(Player player);
 
 }
+

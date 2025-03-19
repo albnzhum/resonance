@@ -536,6 +536,8 @@ MonoBehaviour:
   _audioSource: {fileID: 718515456}
   _clip: {fileID: 8300000, guid: 844724b878f24af42a1914b3097cb396, type: 3}
   _crow: {fileID: 1587477784}
+  _highVolume: 1
+  _lowVolume: 0.5
 --- !u!65 &718515455
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1041,7 +1043,7 @@ Transform:
   m_GameObject: {fileID: 1050648144}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.17, y: 1.595, z: 11.84}
+  m_LocalPosition: {x: -2.17, y: 3.15, z: 11.84}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1075,7 +1077,7 @@ Transform:
   m_GameObject: {fileID: 1177559991}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.705, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -1786,7 +1788,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1587477785}
   - component: {fileID: 1587477784}
-  - component: {fileID: 1587477783}
   m_Layer: 0
   m_Name: Crow
   m_TagString: Untagged
@@ -1794,28 +1795,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!195 &1587477783
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1587477782}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.3
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 0.5
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!114 &1587477784
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1829,6 +1808,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _distination: {fileID: 1050648145}
+  flySpeed: 5
+  heightOffset: 2
 --- !u!4 &1587477785
 Transform:
   m_ObjectHideFlags: 0
@@ -2212,69 +2193,6 @@ Transform:
   - {fileID: 830756916}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1883609829
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1883609831}
-  - component: {fileID: 1883609830}
-  m_Layer: 0
-  m_Name: NavMesh
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1883609830
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1883609829}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_AgentTypeID: 0
-  m_CollectObjects: 0
-  m_Size: {x: 10, y: 10, z: 10}
-  m_Center: {x: 0, y: 2, z: 0}
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_UseGeometry: 0
-  m_DefaultArea: 0
-  m_GenerateLinks: 0
-  m_IgnoreNavMeshAgent: 1
-  m_IgnoreNavMeshObstacle: 1
-  m_OverrideTileSize: 0
-  m_TileSize: 256
-  m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
-  m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: f070be689d6a9064ab0e0366899dd00b, type: 2}
-  m_BuildHeightMesh: 0
---- !u!4 &1883609831
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1883609829}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2008251752
 GameObject:
   m_ObjectHideFlags: 0
@@ -2443,6 +2361,5 @@ SceneRoots:
   - {fileID: 730589186}
   - {fileID: 390338679}
   - {fileID: 1651049367}
-  - {fileID: 1883609831}
   - {fileID: 1587477785}
   - {fileID: 1050648145}
