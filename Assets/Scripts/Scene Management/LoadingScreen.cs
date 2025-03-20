@@ -16,10 +16,11 @@ public class LoadingScreen : MonoBehaviour
     [SerializeField] float fadeSpeed = 0.1f;
     [SerializeField] float rotateSpeed = 10f;
 
-    public void LoadAnimation(YieldInstruction waitFor)
+    public YieldInstruction LoadAnimation(YieldInstruction waitFor)
     {
         StopAllCoroutines();
-        StartCoroutine(LoadAnimationEnum(waitFor));
+
+        return StartCoroutine(LoadAnimationEnum(waitFor));
     }
 
     private IEnumerator LoadAnimationEnum(YieldInstruction waitFor)
@@ -30,8 +31,13 @@ public class LoadingScreen : MonoBehaviour
         loadScreenBackground.color = new Color(loadScreenBackground.color.r, loadScreenBackground.color.g, loadScreenBackground.color.b, 1);
 
         yield return waitFor;
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2);
 
+        StartCoroutine(UnloadAnimationEnum(rotateSquare, moveSquare));
+    }
+
+    private IEnumerator UnloadAnimationEnum(Coroutine rotateSquare, Coroutine moveSquare)
+    {
         if (rotateSquare != null) StopCoroutine(rotateSquare);
         if (moveSquare != null) StopCoroutine(moveSquare);
 
