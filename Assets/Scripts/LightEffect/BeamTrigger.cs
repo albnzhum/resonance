@@ -1,31 +1,29 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BeamTrigger : MonoBehaviour
 {
     [SerializeField] ParticleSystem waterSmokeParticles;
 
-    void OnTriggerEnter(Collider other)
+    private bool waterSmoke;
+
+    public void OnWaterHit(GameObject waterObject)
     {
-        if (other.CompareTag("Water"))
+        if (!waterSmoke)
         {
-            Debug.Log(1);
-            OnWaterHit(other.gameObject);
-        } else if (other.CompareTag("Mechanism"))
-        {
-            OnMechanismHit(other.gameObject);
+            waterSmoke = true;
+            waterSmokeParticles.Play();
+            Material waterObjMaterial = waterObject.GetComponent<Renderer>().material;
+            StartCoroutine(WaterDestroy(waterObjMaterial, waterObject));
         }
     }
 
-    private void OnWaterHit(GameObject waterObject)
+    public void OnMechanismHit(GameObject mechanism)
     {
-        waterSmokeParticles.Play();
-        Material waterObjMaterial = waterObject.GetComponent<Renderer>().material;
-        StartCoroutine(WaterDestroy(waterObjMaterial, waterObject));
+        mechanism.GetComponent<MechanismTest>().StartAction();
     }
 
-    IEnumerator WaterDestroy(Material waterMaterial, GameObject waterObject)
+    private IEnumerator WaterDestroy(Material waterMaterial, GameObject waterObject)
     {
         while (waterMaterial.GetFloat("Vector1_b4651e1c4a334bef8c36a54b0b6c423c") > 0f)
         {
@@ -34,10 +32,5 @@ public class BeamTrigger : MonoBehaviour
         }
 
         Destroy(waterObject);
-    }
-
-    private void OnMechanismHit(GameObject mechanism)
-    {
-        mechanism.GetComponent<MechanismTest>().StartAction();
     }
 }
