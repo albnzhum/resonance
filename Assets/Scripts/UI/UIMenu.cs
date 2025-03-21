@@ -6,13 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class UIMenu : MonoBehaviour
 {
-    [SerializeField] private GameObject _settingsController;
-    [SerializeField] LoadingScreen loadingScreen;
+    //private LoadingScreen loadingScreen;
 
-    private void OnEnable()
-    {
-        loadingScreen = LoadingScreen.instance;
-    }
+    //private void OnEnable()
+    //{
+    //    loadingScreen = LoadingScreen.instance;
+    //}
 
     public void StartGame()
     {
@@ -21,12 +20,10 @@ public class UIMenu : MonoBehaviour
 
     IEnumerator LoadManagerScene()
     {
-        AsyncOperation managerLoad = SceneManager.LoadSceneAsync("Manager", LoadSceneMode.Additive);
-    
-        while (!managerLoad.isDone)
-        {
-            yield return null;
-        }
+        // Асинхронно загружаем сцену с анимацией перехода
+        YieldInstruction sceneLoading = SceneLoadAsync.LoadScene("Manager", LoadSceneMode.Additive);
+
+        yield return sceneLoading;
 
         // После загрузки "Manager" удаляем "Menu"
         SceneManager.UnloadSceneAsync("Menu");
@@ -37,27 +34,27 @@ public class UIMenu : MonoBehaviour
 
     IEnumerator LoadAsyncScene()
     {
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Environment_Free", LoadSceneMode.Additive);
-        loadingScreen.LoadAnimation(asyncLoad);
         //asyncLoad.allowSceneActivation = false; 
 
-        while (asyncLoad.progress < 0.9f)
-        {
-            Debug.Log($"Загрузка: {asyncLoad.progress * 100}%");
-            yield return null;
-        }
+        // Асинхронно загружаем сцену с анимацией перехода
+        YieldInstruction sceneLoading = SceneLoadAsync.LoadScene("Environment_Free", LoadSceneMode.Additive);
+
+        yield return sceneLoading;
+
+
+        //while (asyncLoad.progress < 0.9f)
+        //{
+        //    Debug.Log($"Загрузка: {asyncLoad.progress * 100}%");
+        //    yield return null;
+        //}
+
 
         Debug.Log("Загрузка завершена! Ожидание активации...");
         yield return new WaitForSeconds(2); // Можно заменить на проверку UI-графика
 
         //asyncLoad.allowSceneActivation = true;
     }
-
-
-    public void OpenSettings()
-    {
-        _settingsController.SetActive(true);
-    }
+    
 
     public void Quit()
     {
