@@ -1,9 +1,11 @@
+using UnityEditor;
 using UnityEngine;
 
 public class LightReflection : MonoBehaviour
 {
     [SerializeField] Transform player;
     [SerializeField] GameObject volumetricLightBeam;
+    [SerializeField] GameObject beamController;
     [SerializeField] float maxDistance = 100f;
     [SerializeField] float reflectedBeamLength = 50f;
     [SerializeField] float upwardAngleAdjustment = 30f;
@@ -19,7 +21,7 @@ public class LightReflection : MonoBehaviour
     {
         spotLight = GetComponent<Light>();
         beamLight = volumetricLightBeam.GetComponent<Light>();
-        beamTrigger = volumetricLightBeam.GetComponent<BeamTrigger>();
+        beamTrigger = beamController.GetComponent<BeamTrigger>();
         volumetricLightBeam.SetActive(false);
         lastPlayerPosition = player.position;
     }
