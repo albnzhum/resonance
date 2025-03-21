@@ -3,40 +3,57 @@ using System.Collections;
 
 public class LeverMechanism : MonoBehaviour
 {
-    public Transform pivot; // Точка вращения/опускания рычага
-    public float moveDistance = 0.2f; // Насколько опускается рычаг
-    public float moveSpeed = 2f; // Скорость опускания
-    public GameObject linkedObject; // Объект, который активируется (например, дверь)
+    //public Transform pivot; // Точка вращения/опускания рычага
+    //public float moveDistance = 0.2f; // Насколько опускается рычаг
+    //public float moveSpeed = 2f; // Скорость опускания
+    //public GameObject linkedObject; // Объект, который активируется (например, дверь)
 
-    private bool isActivated = false;
-    private Transform activatorUnit; // Ворона, сидящая на рычаге
+    //private bool isActivated = false;
+    //private Transform activatorUnit; // Ворона, сидящая на рычаге
 
-    public void ActivateLever(Transform activatorTransform)
+    //public void ActivateLever(Transform activatorTransform)
+    //{
+    //    if (isActivated) return;
+
+    //    isActivated = true;
+    //    activatorUnit = activatorTransform;
+    //    StartCoroutine(LowerLever());
+    //}
+
+    //private IEnumerator LowerLever()
+    //{
+    //    float currentAngle = 0f;
+    //    float targetAngle = 45f; // или -45f, зависит от направления
+    //    float speed = 90f; // градусов в секунду
+
+    //    while (currentAngle < targetAngle)
+    //    {
+    //        float step = speed * Time.deltaTime;
+    //        leverArm.Rotate(step, 0, 0); // Вращение по локальной оси X (если палка стоит вертикально)
+    //        currentAngle += step;
+    //        yield return null;
+    //    }
+    //}
+
+    [SerializeField] Transform pivot;
+    [SerializeField] float currentAngle = 0f;
+    [SerializeField] float targetAngle = 45f; // или -45f, зависит от направления
+    [SerializeField] float speed = 90f; // градусов в секунду
+
+    public void LowerLever()
     {
-        if (isActivated) return;
-
-        isActivated = true;
-        activatorUnit = activatorTransform;
-        StartCoroutine(LowerLever());
+        StartCoroutine(LowerLeverCoroutine());
     }
 
-    private IEnumerator LowerLever()
+    private IEnumerator LowerLeverCoroutine()
     {
-        Vector3 startPos = pivot.position;
-        Vector3 endPos = startPos + Vector3.down * moveDistance;
-
-        float elapsedTime = 0;
-        while (elapsedTime < 1f)
+        while (currentAngle < targetAngle)
         {
-            elapsedTime += Time.deltaTime * moveSpeed;
-            pivot.position = Vector3.Lerp(startPos, endPos, elapsedTime);
-
+            float step = speed * Time.deltaTime;
+            pivot.Rotate(step, 0, 0); // Вращение по локальной оси X (если палка стоит вертикально)
+            currentAngle += step;
             yield return null;
         }
-
-        if (linkedObject)
-        {
-            linkedObject.SetActive(false);
-        }
+        // Вызов логики активации: открыть дверь, включить механизм и т.п.
     }
 }

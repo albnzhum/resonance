@@ -73,9 +73,9 @@ public class Bird : MonoBehaviour
     }
     private void LandOnLever()
     {
-        transform.SetParent(lever.pivot); // Привязываем ворону к рычагу
-        lever.ActivateLever(transform); // Активируем рычаг
-        _animationController.onLandEnd -= LandOnLever;
+        //transform.SetParent(lever.pivot); // Привязываем ворону к рычагу
+        //lever.ActivateLever(transform); // Активируем рычаг
+        //_animationController.onLandEnd -= LandOnLever;
     }
 
 }
