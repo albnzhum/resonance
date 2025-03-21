@@ -6,11 +6,11 @@ public class BeamTrigger : MonoBehaviour
 {
     [SerializeField] ParticleSystem waterSmokeParticles;
 
-
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Water"))
         {
+            Debug.Log(1);
             OnWaterHit(other.gameObject);
         } else if (other.CompareTag("Mechanism"))
         {

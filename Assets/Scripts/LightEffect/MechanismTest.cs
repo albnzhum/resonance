@@ -6,6 +6,6 @@ public class MechanismTest : MonoBehaviour
 {
     public void StartAction()
     {
-        gameObject.GetComponent<Renderer>().material.SetColor("Color", Color.green);
+        gameObject.GetComponent<Renderer>().material.SetColor("_BaseColor", Color.green);
     }
 }

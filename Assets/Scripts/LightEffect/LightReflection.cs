@@ -27,6 +27,7 @@ public class LightReflection : MonoBehaviour
 
         if (angleToPlayer <= spotAngle)
         {
+            if (!reflectedBeamObject.activeSelf) reflectedBeamObject.SetActive(true);
             Ray ray = new Ray(transform.position, directionToPlayer);
             RaycastHit hit;
 
@@ -38,6 +39,9 @@ public class LightReflection : MonoBehaviour
                     ReflectLight(hit);
                 }
             }
+        } else
+        {
+            if (reflectedBeamObject.activeSelf) reflectedBeamObject.SetActive(false);
         }
     }
 
@@ -55,9 +59,16 @@ public class LightReflection : MonoBehaviour
         RaycastHit targetHit;
 
         float beamLength = reflectedBeamLength;
+        Vector3 endPoint;
+
         if (Physics.Raycast(reflectedRay, out targetHit, reflectedBeamLength))
         {
             beamLength = targetHit.distance;
+            endPoint = targetHit.point;
+        }
+        else
+        {
+            endPoint = hitPoint + reflectedDirection * beamLength;
         }
 
         reflectedBeam.positionCount = 2;
