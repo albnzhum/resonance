@@ -6,6 +6,7 @@ public class TestDustySurface : MonoBehaviour, IDustySurface
 {
     public void BecomeDusty()
     {
-        transform.localScale *= 2;
+        Debug.Log("object became dusty");
+        transform.localScale *= 5;
     }
 }

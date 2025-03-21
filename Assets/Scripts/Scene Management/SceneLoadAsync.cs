@@ -14,11 +14,23 @@ public static class SceneLoadAsync
     /// <summary>
     /// Загрузка сцены (с экраном загрузки)
     /// </summary>
-    /// <param name="sceneIndex"></param>
-    public static void LoadScene(int sceneIndex)
+    /// <param name="sceneIndex">Индекс сцены</param>
+    public static YieldInstruction LoadScene(int sceneIndex, LoadSceneMode mode = LoadSceneMode.Single)
     {
-        YieldInstruction waitFor = SceneManager.LoadSceneAsync(sceneIndex);
-        loadingScreen.LoadAnimation(waitFor);
+        YieldInstruction waitFor = SceneManager.LoadSceneAsync(sceneIndex, mode);
+        
+        return loadingScreen.LoadAnimation(waitFor);
+    }
+
+    /// <summary>
+    /// Загрузка сцены (с экраном загрузки)
+    /// </summary>
+    /// <param name="sceneName">Название сцены</param>
+    public static YieldInstruction LoadScene(string sceneName, LoadSceneMode mode = LoadSceneMode.Single)
+    {
+        YieldInstruction waitFor = SceneManager.LoadSceneAsync(sceneName, mode);
+
+        return loadingScreen.LoadAnimation(waitFor);
     }
 
     static SceneLoadAsync()
