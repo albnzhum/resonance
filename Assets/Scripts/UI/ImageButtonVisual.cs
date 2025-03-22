@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class HoverTextVisual : MonoBehaviour
+public class ImageButtonVisual : MonoBehaviour
 {
     [SerializeField] private PointerObserver pointerObserver;
     
