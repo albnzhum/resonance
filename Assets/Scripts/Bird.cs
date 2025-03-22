@@ -1,50 +1,81 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Bird : MonoBehaviour
 {
-    [SerializeField] Transform _distination;
-    [SerializeField] Animator _animator;
-    [SerializeField] float flySpeed = 5f;  // Скорость полета вороны
-    [SerializeField] float heightOffset = 2f;  // Отступ по высоте (чтобы ворона летела снизу вверх)
-    private bool isFlying = false;
+    [SerializeField] List<FlightDestination> flights;
 
-    void Update()
-    {
-        // Если ворона летит, продолжаем движение
-        if (isFlying)
-        {
-            FlyTowardsLever();
-        }
-    }
+    [SerializeField] BirdAnimationController _animationController;
 
-    // Этот метод вызывается при шелесте листьев
+    [SerializeField] float flySpeed = 5f;
+    [SerializeField] float takeOffHeight = 0.2f;
+    [SerializeField] float takeOffSpeed = 1.0f;
+    [SerializeField] float takeOffDelay = 1.0f;
+    [SerializeField] float landSpeed = 1.0f;
+    [SerializeField] float heightOffset = 0.2f;
+    [SerializeField] Transform pawsPoint;
+    [SerializeField] LeverMechanism lever;
+
     public void TakeOff()
     {
-
-        // Рассчитываем цель (точка назначения рычага + смещение по высоте)
-        Vector3 targetPosition = _distination.position + Vector3.up * heightOffset;
-
-        // Логика активации полета
-        //isFlying = true;
-
-        _animator.SetTrigger("TakeOff");
+        _animationController.onTakeOffEnd += StartFly;
+        _animationController.TakeOff();
     }
 
-    private void FlyTowardsLever()
+    public void StartFly()
     {
-        // Рассчитываем текущую позицию вороны
-        Vector3 targetPosition = _distination.position + Vector3.up * heightOffset;
+        _animationController.onTakeOffEnd -= StartFly;
+        StartCoroutine(FlyToDestinationsCoroutine(flights));
+        _animationController.Fly();
+    }
 
-        // Двигаем ворону в сторону рычага с учетом смещения по высоте
-        transform.position = Vector3.MoveTowards(transform.position, targetPosition, flySpeed * Time.deltaTime);
+    private IEnumerator FlyToDestinationsCoroutine(List<FlightDestination> destinations)
+    {
+        yield return MoveToTarget(pawsPoint.position + Vector3.up * takeOffHeight, takeOffSpeed);
+        yield return new WaitForSecondsRealtime(takeOffDelay);
 
-        // Проверка на достижение цели
-        if (Vector3.Distance(transform.position, targetPosition) < 0.1f)
+        // Полет по точкам
+        foreach (var destination in destinations)
         {
-            isFlying = false;  // Полет завершен
-            _animator.SetTrigger("Land");
+            yield return MoveToTarget(destination.Target.position + Vector3.up * heightOffset, destination.Speed);
+            if (destination.DelayOnTarget > 0)
+                yield return new WaitForSecondsRealtime(destination.DelayOnTarget);
+        }
+        _animationController.onLand += Land;
+        _animationController.Land();
+    }
+
+    private IEnumerator MoveToTarget(Vector3 targetPosition, float speed)
+    {
+        // Разница между положением центра вороны и её лап
+        Vector3 offset = transform.position - pawsPoint.position;
+
+        // Смещаем цель, чтобы лапы приземлялись точно на targetPosition
+        Vector3 adjustedTarget = targetPosition + offset;
+
+        while (Vector3.Distance(pawsPoint.position, targetPosition) >= 0.01f)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, adjustedTarget, speed * Time.deltaTime);
+            yield return null;
         }
     }
+
+    private void Land()
+    {
+        StopAllCoroutines();
+        _animationController.onLand -= Land;
+        StartCoroutine(MoveToTarget(flights.Last().Target.position, landSpeed));
+
+        if (lever != null)
+            _animationController.onLandEnd += LandOnLever;
+    }
+    private void LandOnLever()
+    {
+        //transform.SetParent(lever.pivot); // Привязываем ворону к рычагу
+        //lever.ActivateLever(transform); // Активируем рычаг
+        //_animationController.onLandEnd -= LandOnLever;
+    }
+
 }
