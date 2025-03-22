@@ -74,23 +74,30 @@ public class LightReflection : MonoBehaviour
 
     void ReflectLight(RaycastHit hit)
     {
+        // Центр отражения — точка попадания луча
         Vector3 hitPoint = hit.point;
+
+        // Вычисляем направление падающего луча
         Vector3 incomingDirection = (hitPoint - transform.position).normalized;
 
-        Vector3 normal = Vector3.ProjectOnPlane(player.forward, Vector3.up).normalized;
-        if (normal.magnitude < 0.01f)
-        {
-            normal = Vector3.up;
-        }
+        // Вычисляем нормаль к поверхности
+        Vector3 normal = hit.normal;
 
+        // Отражаем свет относительно нормали
         Vector3 reflectedDirection = Vector3.Reflect(incomingDirection, normal);
-        Vector3 rotationAxis = Vector3.Cross(reflectedDirection, Vector3.up).normalized;
-        reflectedDirection = Quaternion.AngleAxis(upwardAngleAdjustment, rotationAxis) * reflectedDirection;
 
-        volumetricLightBeam.transform.position = hitPoint;
+        // --- Смещаем источник света немного назад ---
+        Vector3 lightPosition = hitPoint - reflectedDirection * 2f; // Сдвиг на 0.5 метра назад
+
+        // --- Наклоняем луч на 30 градусов вниз ---
+        reflectedDirection = Quaternion.AngleAxis(30f, Vector3.Cross(reflectedDirection, Vector3.up)) * reflectedDirection;
+
+        // Устанавливаем позицию и направление света
+        volumetricLightBeam.transform.position = lightPosition;
         volumetricLightBeam.transform.rotation = Quaternion.LookRotation(reflectedDirection);
 
-        Ray reflectedRay = new Ray(hitPoint, reflectedDirection);
+        // Создаём новый луч
+        Ray reflectedRay = new Ray(lightPosition, reflectedDirection);
         RaycastHit targetHit;
 
         if (Physics.Raycast(reflectedRay, out targetHit, reflectedBeamLength))
@@ -121,4 +128,8 @@ public class LightReflection : MonoBehaviour
             }
         }
     }
+
+
+
+
 }

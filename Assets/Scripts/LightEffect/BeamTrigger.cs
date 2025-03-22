@@ -27,9 +27,9 @@ public class BeamTrigger : MonoBehaviour
 
     private IEnumerator WaterDestroy(Material waterMaterial)
     {
-        while (waterMaterial.GetFloat("Vector1_b4651e1c4a334bef8c36a54b0b6c423c") > 0f)
+        while (waterMaterial.GetFloat("_DepthFade") > 0f)
         {
-            waterMaterial.SetFloat("Vector1_b4651e1c4a334bef8c36a54b0b6c423c", waterMaterial.GetFloat("Vector1_b4651e1c4a334bef8c36a54b0b6c423c") - 0.1f);
+            waterMaterial.SetFloat("_DepthFade", waterMaterial.GetFloat("_DepthFade") - 0.1f);
             waterObj.transform.position = new Vector3(waterObj.transform.position.x, waterObj.transform.position.y - 0.2f, waterObj.gameObject.transform.position.z);
             yield return new WaitForSeconds(0.5f);
         }
