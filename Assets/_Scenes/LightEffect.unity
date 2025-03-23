@@ -1172,6 +1172,9 @@ MonoBehaviour:
   maxDistance: 100
   reflectedBeamLength: 50
   upwardAngleAdjustment: 40
+  raycastLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!114 &2056648011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1452,6 +1455,7 @@ Transform:
   m_Children:
   - {fileID: 5246225378764080448}
   - {fileID: 1991397561}
+  - {fileID: 4236133512360608422}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4015521751807944591
@@ -6598,11 +6602,11 @@ Transform:
   m_GameObject: {fileID: 4236133512360608419}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11.15, y: 12.32, z: -29.33}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.28, y: 0.28, z: 0.28}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 3939203374279178266}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!81 &4922239422341502719
 AudioListener:
@@ -11637,7 +11641,6 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 4015521751807944627}
-  - {fileID: 4236133512360608422}
   - {fileID: 1583304831}
   - {fileID: 2030988027}
   - {fileID: 3939203374279178266}

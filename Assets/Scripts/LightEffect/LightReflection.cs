@@ -1,4 +1,3 @@
-using UnityEditor;
 using UnityEngine;
 
 public class LightReflection : MonoBehaviour
@@ -9,115 +8,133 @@ public class LightReflection : MonoBehaviour
     [SerializeField] float maxDistance = 100f;
     [SerializeField] float reflectedBeamLength = 50f;
     [SerializeField] float upwardAngleAdjustment = 30f;
+    [SerializeField] LayerMask raycastLayerMask = ~0;
 
     private Light spotLight;
-    private bool isPlayerInBeam = false;
-    private Vector3 lastPlayerPosition;
-    private bool hasMoved = false;
     private Light beamLight;
     private BeamTrigger beamTrigger;
+    private bool isPlayerInTrigger = false;
+    private Vector3 lastHitPoint;
+    private Vector3 lastReflectedDirection;
+    private CharacterController playerCharacterController;
 
     void Awake()
     {
         spotLight = GetComponent<Light>();
         beamLight = volumetricLightBeam.GetComponent<Light>();
         beamTrigger = beamController.GetComponent<BeamTrigger>();
+        playerCharacterController = player.GetComponent<CharacterController>();
+        Collider playerCollider = player.GetComponent<Collider>();
         volumetricLightBeam.SetActive(false);
-        lastPlayerPosition = player.position;
     }
 
-    void Update()
+    void OnTriggerEnter(Collider other)
     {
-        Vector3 directionToPlayer = (player.position - transform.position).normalized;
-        float angleToPlayer = Vector3.Angle(transform.forward, directionToPlayer);
-        float spotAngle = spotLight.spotAngle * 0.5f;
-
-        if (angleToPlayer <= spotAngle)
+        if (other.gameObject == player.gameObject)
         {
-            if (Vector3.Distance(player.position, lastPlayerPosition) > 0.01f)
+            isPlayerInTrigger = true;
+            if (!volumetricLightBeam.activeSelf)
             {
-                hasMoved = true;
-                if (!volumetricLightBeam.activeSelf)
-                {
-                    volumetricLightBeam.SetActive(true);
-                }
-
-                Ray ray = new Ray(transform.position, directionToPlayer);
-                RaycastHit hit;
-
-                if (Physics.Raycast(ray, out hit, maxDistance) && hit.collider.gameObject == player.gameObject)
-                {
-                    isPlayerInBeam = true;
-                    ReflectLight(hit);
-                }
-                else
-                {
-                    if (volumetricLightBeam.activeSelf)
-                    {
-                        volumetricLightBeam.SetActive(false);
-                    }
-                }
-
-                lastPlayerPosition = player.position;
+                volumetricLightBeam.SetActive(true);
             }
+
+            ComputeReflection();
         }
-        else
+    }
+
+    void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject == player.gameObject)
         {
-            isPlayerInBeam = false;
-            hasMoved = false;
+            ComputeReflection();
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject == player.gameObject)
+        {
+            isPlayerInTrigger = false;
             if (volumetricLightBeam.activeSelf)
             {
                 volumetricLightBeam.SetActive(false);
+                volumetricLightBeam.transform.position = Vector3.zero;
+                volumetricLightBeam.transform.rotation = new Quaternion(0, 0, 0, 0);
             }
         }
     }
 
-    void ReflectLight(RaycastHit hit)
+    private void ComputeReflection()
     {
-        Vector3 hitPoint = hit.point;
-        Vector3 incomingDirection = (hitPoint - transform.position).normalized;
-
-        Vector3 normal = Vector3.ProjectOnPlane(player.forward, Vector3.up).normalized;
-        if (normal.magnitude < 0.01f)
+        Vector3 playerTargetPosition = player.position;
+        if (playerCharacterController != null)
         {
-            normal = Vector3.up;
+            playerTargetPosition = player.position + Vector3.up * playerCharacterController.height * 0.5f;
         }
 
-        Vector3 reflectedDirection = Vector3.Reflect(incomingDirection, normal);
-        Vector3 rotationAxis = Vector3.Cross(reflectedDirection, Vector3.up).normalized;
-        reflectedDirection = Quaternion.AngleAxis(upwardAngleAdjustment, rotationAxis) * reflectedDirection;
+        Vector3 directionToPlayer = (playerTargetPosition - transform.position).normalized;
+        Ray ray = new Ray(transform.position, directionToPlayer);
+        RaycastHit hit;
 
-        volumetricLightBeam.transform.position = hitPoint;
-        volumetricLightBeam.transform.rotation = Quaternion.LookRotation(reflectedDirection);
-
-        Ray reflectedRay = new Ray(hitPoint, reflectedDirection);
-        RaycastHit targetHit;
-
-        if (Physics.Raycast(reflectedRay, out targetHit, reflectedBeamLength))
+        if (Physics.Raycast(ray, out hit, maxDistance, raycastLayerMask))
         {
-            float beamLength = targetHit.distance;
-            if (beamLight != null)
+            if (hit.collider.gameObject == player.gameObject)
             {
-                beamLight.range = beamLength;
-            }
+                Vector3 hitPoint = hit.point;
+                Vector3 incomingDirection = (hitPoint - transform.position).normalized;
 
-            if (beamTrigger != null)
-            {
-                if (targetHit.collider.gameObject.CompareTag("Water"))
+                Vector3 normal = Vector3.ProjectOnPlane(player.forward, Vector3.up).normalized;
+                if (normal.magnitude < 0.01f)
                 {
-                    beamTrigger.OnWaterHit(targetHit.collider.gameObject);
+                    normal = Vector3.up;
                 }
-                else if (targetHit.collider.gameObject.CompareTag("Mechanism"))
+
+                Vector3 reflectedDirection = Vector3.Reflect(incomingDirection, normal);
+                Vector3 rotationAxis = Vector3.Cross(reflectedDirection, Vector3.up).normalized;
+                reflectedDirection = Quaternion.AngleAxis(upwardAngleAdjustment, rotationAxis) * reflectedDirection;
+
+                lastHitPoint = hitPoint;
+                lastReflectedDirection = reflectedDirection;
+
+                volumetricLightBeam.transform.position = hitPoint;
+                volumetricLightBeam.transform.rotation = Quaternion.LookRotation(reflectedDirection);
+
+                Ray reflectedRay = new Ray(hitPoint, reflectedDirection);
+                RaycastHit targetHit;
+
+                if (Physics.Raycast(reflectedRay, out targetHit, reflectedBeamLength, raycastLayerMask))
                 {
-                    beamTrigger.OnMechanismHit(targetHit.collider.gameObject);
+                    float beamLength = targetHit.distance;
+                    if (beamLight != null)
+                    {
+                        beamLight.range = beamLength;
+                    }
+
+                    if (beamTrigger != null)
+                    {
+                        string targetTag = targetHit.collider.gameObject.tag;
+
+                        switch (targetTag)
+                        {
+                            case "Water":
+                                beamTrigger.OnWaterHit(targetHit.collider.gameObject);
+                                break;
+                            case "Mechanism":
+                                beamTrigger.OnMechanismHit(targetHit.collider.gameObject);
+                                break;
+                            case "Crystall":
+                                beamTrigger.OnCrystallHit(targetHit.collider.gameObject);
+                                break;
+                        }
+                    }
                 }
-            }
-        }
-        else
-        {
-            if (beamLight != null)
-            {
-                beamLight.range = reflectedBeamLength;
+                else
+                {
+                    if (beamLight != null)
+                    {
+                        beamLight.range = reflectedBeamLength;
+                    }
+                }
             }
         }
     }
