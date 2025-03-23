@@ -4,6 +4,7 @@ using TMPro;
 
 public class LeverMechanism : MonoBehaviour
 {
+    [SerializeField] GameObject obstance;
     [SerializeField] Transform pivot;
     [SerializeField] Transform leverTopPoint;
     [SerializeField] float currentAngle = 0f;
@@ -23,13 +24,12 @@ public class LeverMechanism : MonoBehaviour
             pivot.Rotate(0, 0, step);
             currentAngle += step;
 
-            Vector3 offset = transform.position - bird.GetPawsPosition();
-
+            Vector3 offset = bird.transform.position - bird.GetPawsPosition();
             Vector3 adjustedTarget = leverTopPoint.position + offset;
-
             bird.transform.position = adjustedTarget;
 
             yield return null;
         }
+        obstance.SetActive(false);
     }
 }

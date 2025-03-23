@@ -81,6 +81,7 @@ public class Bird : MonoBehaviour
     }
     private void LandOnLever()
     {
+        StopAllCoroutines();
         lever.LowerLeverByBird(this);
         _animationController.onLandEnd -= LandOnLever;
     }
