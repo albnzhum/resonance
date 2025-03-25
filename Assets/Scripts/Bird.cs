@@ -31,6 +31,14 @@ public class Bird : MonoBehaviour
         _animationController.Fly();
     }
 
+    public Vector3 GetPawsPosition()
+    {
+        if (!pawsPoint)
+            return Vector3.zero;
+
+        return pawsPoint.position;
+    }
+
     private IEnumerator FlyToDestinationsCoroutine(List<FlightDestination> destinations)
     {
         yield return MoveToTarget(pawsPoint.position + Vector3.up * takeOffHeight, takeOffSpeed);
@@ -73,9 +81,9 @@ public class Bird : MonoBehaviour
     }
     private void LandOnLever()
     {
-        //transform.SetParent(lever.pivot); // Привязываем ворону к рычагу
-        //lever.ActivateLever(transform); // Активируем рычаг
-        //_animationController.onLandEnd -= LandOnLever;
+        StopAllCoroutines();
+        lever.LowerLeverByBird(this);
+        _animationController.onLandEnd -= LandOnLever;
     }
 
 }
