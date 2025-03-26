@@ -6,6 +6,7 @@ public class CrystallController : MonoBehaviour
     [Header("Light")]
     [SerializeField] Light crystallLight;
     [SerializeField] Light crystallSpotLight;
+    [SerializeField] ParticleSystem crystallParticles;
 
     [Header("Audio")]
     [SerializeField] AudioSource crystallSound;
@@ -79,6 +80,7 @@ public class CrystallController : MonoBehaviour
                 if (crystallSpotLight.intensity >= maxSpotLightIntensity && !isActivated)
                 {
                     isActivated = true;
+                    crystallParticles.Play();
                     if (!crystallSound.isPlaying)
                     {
                         crystallSound.Play();
@@ -111,6 +113,7 @@ public class CrystallController : MonoBehaviour
                 if (crystallSpotLight.intensity <= 0 && isActivated)
                 {
                     isActivated = false;
+                    crystallParticles.Stop();
                     if (crystallSound.isPlaying)
                     {
                         crystallSound.Stop();
