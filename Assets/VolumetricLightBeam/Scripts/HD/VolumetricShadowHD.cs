@@ -197,7 +197,7 @@ namespace VLB
         void ProcessOcclusionInternal()
         {
             UpdateDepthCameraPropertiesAccordingToBeam();
-            m_DepthCamera.Render();
+            //m_DepthCamera.Render();
         }
 
         void OnBeamEnabled()

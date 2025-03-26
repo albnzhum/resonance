@@ -4,16 +4,13 @@ using UnityEngine;
 public class ParticleTrigger : MonoBehaviour
 {
     [SerializeField] ParticleSystem ps;
-    [SerializeField] GameObject waterTrigger;
-    [SerializeField] GameObject treeTrigger;
+    [SerializeField] GameObject leavesTrigger;
 
-    private Collider waterCollider;
-    private Collider treeCollider;
+    private Collider leavesCollider;
 
     void Awake()
     {
-        waterCollider = waterTrigger.GetComponent<Collider>();
-        treeCollider = treeTrigger.GetComponent<Collider>();
+        leavesCollider = leavesTrigger.GetComponent<Collider>();
     }
 
     void Update()
@@ -27,15 +24,11 @@ public class ParticleTrigger : MonoBehaviour
         {
             Vector3 particlePos = particles[i].position;
             bool shouldDelete = false;
-
-            if (waterCollider != null && waterCollider.bounds.Contains(particlePos))
+            
+            if (leavesCollider != null && leavesCollider.bounds.Contains(particlePos))
             {
-                Debug.Log("Particle on water");
-                shouldDelete = true;
-            }
-            else if (treeCollider != null && treeCollider.bounds.Contains(particlePos))
-            {
-                OnParticleHitTree(particlePos);
+                Debug.Log(1);
+                OnParticleHitleaves(particlePos);
             }
 
             if (!shouldDelete)
@@ -51,8 +44,8 @@ public class ParticleTrigger : MonoBehaviour
         }
     }
 
-    void OnParticleHitTree(Vector3 particlePosition)
+    void OnParticleHitleaves(Vector3 particlePosition)
     {
-        treeTrigger.gameObject.GetComponent<TreeOnFire>().ParticlesOnFire();
+        leavesTrigger.gameObject.GetComponent<LeavesFire>().ParticlesOnFire();
     }
 }

@@ -19,11 +19,6 @@ public class FireController : MonoBehaviour
         startScale = fireObj.transform.localScale;
     }
 
-    private void Start()
-    {
-        StartBurn();
-    }
-
     public void StartBurn()
     {
         ps.Play();

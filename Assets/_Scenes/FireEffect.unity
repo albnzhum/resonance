@@ -210,8 +210,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ps: {fileID: 793228380}
-  waterTrigger: {fileID: 864026484}
-  treeTrigger: {fileID: 928615035}
+  leavesTrigger: {fileID: 4701367242451065405}
 --- !u!114 &138849264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6522,6 +6521,50 @@ Transform:
   - {fileID: 2828024661604534531}
   - {fileID: 1399975509}
   m_Father: {fileID: 726568941877242190}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1462235077
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1462235079}
+  - component: {fileID: 1462235078}
+  m_Layer: 0
+  m_Name: States
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1462235078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1462235077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bef671662c118ca42baa4c8cd5160c1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1462235079
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1462235077}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.204687, y: 9.303567, z: -45.8737}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1528752915
 GameObject:
@@ -36160,8 +36203,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ps: {fileID: 629485295553275024}
-  waterTrigger: {fileID: 864026484}
-  treeTrigger: {fileID: 928615035}
+  leavesTrigger: {fileID: 4701367242451065405}
 --- !u!82 &726568941877242194
 AudioSource:
   m_ObjectHideFlags: 0
@@ -81058,3 +81100,4 @@ SceneRoots:
   - {fileID: 1372511702}
   - {fileID: 4698868578490377031}
   - {fileID: 385169760}
+  - {fileID: 1462235079}
