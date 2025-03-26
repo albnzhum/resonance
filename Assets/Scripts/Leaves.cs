@@ -9,7 +9,19 @@ public class Leaves : MonoBehaviour, IInteractableTouching
     [SerializeField] Bird _bird;
 
     [SerializeField][Range(0, 1)] float _highVolume; 
-    [SerializeField][Range(0, 1)] float _lowVolume; 
+    [SerializeField][Range(0, 1)] float _lowVolume;
+
+    private BurningObject _burnObject;
+
+    private void Awake()
+    {
+        _burnObject = GetComponent<BurningObject>();
+    }
+
+    private void Start()
+    {
+        _burnObject.onBurn += _bird.TakeOff;
+    }
 
     public void Interact(Player player)
     {
@@ -25,4 +37,7 @@ public class Leaves : MonoBehaviour, IInteractableTouching
         _audioSource.PlayOneShot(_clip);     
         Debug.Log("листья");
     }
+
+
+
 }
