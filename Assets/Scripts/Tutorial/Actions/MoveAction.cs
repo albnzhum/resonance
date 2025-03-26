@@ -1,27 +1,25 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveAction : MonoBehaviour
+public class MoveAction : MonoBehaviour, ITutorialAction
 {
-    [SerializeField] private VoidEventChannelSO actionChannel;
-    [SerializeField] private TutorialSystem tutorialSystem;
-    
-    void Start()
+    public event Action OnActionCompleted;
+    private bool _isCompleted = false;
+
+    public void StartAction()
     {
-        
+        _isCompleted = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if (tutorialSystem.CurrentStage == TutorialStages.Movement)
+        if (!_isCompleted && (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || 
+                              Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D)))
         {
-            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) ||
-                Input.GetKey(KeyCode.D))
-            {
-                actionChannel.RaiseEvent();
-            }
+            _isCompleted = true;
+            OnActionCompleted?.Invoke();
         }
     }
 }
