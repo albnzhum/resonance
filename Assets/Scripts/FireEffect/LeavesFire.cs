@@ -51,7 +51,8 @@ public class LeavesFire : MonoBehaviour
             }
             leavesAudioSource.volume = 0f;
 
-            Destroy(gameObject);
+            fireParticles.Stop();
+            Destroy(transform.parent.gameObject);
         }
     }
 }
