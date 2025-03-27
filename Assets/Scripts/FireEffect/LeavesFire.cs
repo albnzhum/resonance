@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class LeavesFire : MonoBehaviour
 {
@@ -13,10 +14,10 @@ public class LeavesFire : MonoBehaviour
     public void ParticlesOnFire()
     {
         leavesAudioSource = GetComponent<AudioSource>();
-        StartCoroutine(DestroyTree());
+        StartCoroutine(DestroyLeaves());
     }
 
-    IEnumerator DestroyTree()
+    IEnumerator DestroyLeaves()
     {
         if (!isDestroy)
         {
