@@ -6,8 +6,8 @@ public class Tutorial : MonoBehaviour
 {
     [Header("UI elements")] 
     [SerializeField] private GameObject _tutorialWindow;
-
-    [SerializeField] private Button _closeButton;
+    
+    [SerializeField] private Animator animator;
 
     private bool isCompleted;
 
@@ -18,22 +18,18 @@ public class Tutorial : MonoBehaviour
     public void Show()
     {
         _tutorialWindow.SetActive(true);
-        _closeButton.onClick.AddListener(CompleteStage);
     }
 
     public void Close()
     {
-        _tutorialWindow.SetActive(false);
+        animator.SetBool("IsClose", true);
         isCompleted = true;
     }
 
-    private void CompleteStage()
+    // Этот метод вызывается из анимации
+    public void CloseObject()
     {
-        _closeButton.onClick.RemoveListener(CompleteStage);
-        OnStageCompleted?.Invoke();
+        _tutorialWindow.SetActive(false);
+        OnStageCompleted?.Invoke(); 
     }
-
-    //открывается начало -> кнопка начать
-    //идет подписка на событие -> событие вызвано -> отписка от предыдущего, подписка на следующее
-    //перемещение -> отслеживается событие  перемещения -> событие вызвано, происходит отписка, следующая система подписывается на это же событие
 }

@@ -88,6 +88,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cliff3
       objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: 946e021ebde69c64193b23362aa9cdea, type: 3}
+      propertyPath: m_FadeMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: 946e021ebde69c64193b23362aa9cdea, type: 3}
+      propertyPath: m_LODs.Array.data[0].screenRelativeHeight
+      value: 0.79086477
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: 946e021ebde69c64193b23362aa9cdea, type: 3}
+      propertyPath: m_LODs.Array.data[1].screenRelativeHeight
+      value: 0.53055024
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: 946e021ebde69c64193b23362aa9cdea, type: 3}
+      propertyPath: m_LODs.Array.data[2].screenRelativeHeight
+      value: 0.14758138
+      objectReference: {fileID: 0}
     - target: {fileID: 8611466446254490777, guid: 946e021ebde69c64193b23362aa9cdea, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

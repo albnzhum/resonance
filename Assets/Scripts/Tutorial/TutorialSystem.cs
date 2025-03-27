@@ -6,6 +6,7 @@ using UnityEngine;
 public enum TutorialStages
 {
     Movement,
+    Light,
     WaterRipple,
     Leaves,
     Fire,
@@ -16,13 +17,19 @@ public class TutorialSystem : MonoBehaviour
 {
     [SerializeField] private List<Tutorial> _tutorialStages;
     [SerializeField] private GameObject _tutorial;
-    [SerializeField] private GameObject _player;
     
     [SerializeField] private GameObject startWindow;
+    [SerializeField] private CameraController cameraController;
+
+    [Header("Actions")] 
+    [SerializeField] private MoveAction moveAction;
+    [SerializeField] private LightAction lightAction;
 
     private GameStateManager gameStateManager;
+    
     private int currentStageIndex = 0;
     private bool isCompleted = false;
+    
     private ITutorialAction currentAction;
 
     private TutorialStages currentStage;
@@ -47,6 +54,8 @@ public class TutorialSystem : MonoBehaviour
     {
         startWindow.SetActive(false);
         gameStateManager.ChangeState(GameState.Gameplay);
+        
+        cameraController.ActivePlayerCamera();
 
         ShowCurrentStage();
     }
@@ -69,15 +78,17 @@ public class TutorialSystem : MonoBehaviour
         currentStage = (TutorialStages)currentStageIndex;
 
         currentAction = GetActionForStage(currentStage);
+        if (currentAction == null)
+        {
+            Debug.LogError($"Action not found for stage {currentStage}!");
+            return;
+        }
 
         _tutorialStages[currentStageIndex].Show();
         _tutorialStages[currentStageIndex].OnStageCompleted += OnCurrentStageCompleted;
 
-        if (currentAction != null)
-        {
-            currentAction.OnActionCompleted += OnActionCompleted;
-            currentAction.StartAction();
-        }
+        currentAction.OnActionCompleted += OnActionCompleted;
+        currentAction.StartAction();
     }
 
     private void OnCurrentStageCompleted()
@@ -94,6 +105,12 @@ public class TutorialSystem : MonoBehaviour
         ShowCurrentStage();
     }
 
+    private IEnumerator DelayBeforeNextStage()
+    {
+        yield return new WaitForSeconds(4f); // Ждём 4 секунды
+        ShowCurrentStage();
+    }
+
     private void OnActionCompleted()
     {
         OnCurrentStageCompleted();
@@ -105,11 +122,9 @@ public class TutorialSystem : MonoBehaviour
         switch (stage)
         {
             case TutorialStages.Movement:
-                return _player.GetComponent<MoveAction>();
-            case TutorialStages.Leaves:
-                return _player.GetComponent<LeavesAction>();
-            case TutorialStages.WaterRipple:
-                return _player.GetComponent<WaterRippleAction>();
+                return moveAction;
+            case TutorialStages.Light:
+                return lightAction;
             default:
                 return null;
         }

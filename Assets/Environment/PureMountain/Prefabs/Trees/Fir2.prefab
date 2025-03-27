@@ -89,6 +89,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4742473837712756890, guid: 3e1c530c319199d44ba79bf47eee9b6c, type: 3}
+      propertyPath: m_AnimateCrossFading
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: 3e1c530c319199d44ba79bf47eee9b6c, type: 3}
       propertyPath: m_LODs.Array.data[0].fadeTransitionWidth
       value: 0.5
       objectReference: {fileID: 0}
@@ -106,15 +110,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4742473837712756890, guid: 3e1c530c319199d44ba79bf47eee9b6c, type: 3}
       propertyPath: m_LODs.Array.data[0].screenRelativeHeight
-      value: 0.6
+      value: 0.8794557
       objectReference: {fileID: 0}
     - target: {fileID: 4742473837712756890, guid: 3e1c530c319199d44ba79bf47eee9b6c, type: 3}
       propertyPath: m_LODs.Array.data[1].screenRelativeHeight
-      value: 0.3
+      value: 0.69589394
       objectReference: {fileID: 0}
     - target: {fileID: 4742473837712756890, guid: 3e1c530c319199d44ba79bf47eee9b6c, type: 3}
       propertyPath: m_LODs.Array.data[2].screenRelativeHeight
-      value: 0.1
+      value: 0.4652423
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: 3e1c530c319199d44ba79bf47eee9b6c, type: 3}
+      propertyPath: m_LODs.Array.data[3].screenRelativeHeight
+      value: 0.13430731
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

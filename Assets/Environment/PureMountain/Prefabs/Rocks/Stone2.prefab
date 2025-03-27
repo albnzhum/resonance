@@ -72,6 +72,22 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: d0fbef3719b80004e9e0aaa200a64323, type: 2}
+    - target: {fileID: 4742473837712756890, guid: aab57b63679f06d4699083cedf8b6cba, type: 3}
+      propertyPath: m_FadeMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: aab57b63679f06d4699083cedf8b6cba, type: 3}
+      propertyPath: m_LODs.Array.data[0].screenRelativeHeight
+      value: 0.82653886
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: aab57b63679f06d4699083cedf8b6cba, type: 3}
+      propertyPath: m_LODs.Array.data[1].screenRelativeHeight
+      value: 0.59332556
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: aab57b63679f06d4699083cedf8b6cba, type: 3}
+      propertyPath: m_LODs.Array.data[2].screenRelativeHeight
+      value: 0.1989311
+      objectReference: {fileID: 0}
     - target: {fileID: 7271322458030926899, guid: aab57b63679f06d4699083cedf8b6cba, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

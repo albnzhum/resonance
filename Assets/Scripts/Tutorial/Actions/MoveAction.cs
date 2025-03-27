@@ -19,7 +19,7 @@ public class MoveAction : MonoBehaviour, ITutorialAction
                               Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D)))
         {
             _isCompleted = true;
-            OnActionCompleted?.Invoke();
+            OnActionCompleted.Invoke();
         }
     }
 }
