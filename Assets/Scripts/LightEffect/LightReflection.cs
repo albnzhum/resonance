@@ -92,7 +92,7 @@ public class LightReflection : MonoBehaviour
                 Vector3 reflectedDirection = Vector3.Reflect(incomingDirection, normal);
                 Vector3 rotationAxis = Vector3.Cross(reflectedDirection, Vector3.up).normalized;
                 reflectedDirection = Quaternion.AngleAxis(upwardAngleAdjustment, rotationAxis) * reflectedDirection;
-
+                Debug.Log(maxDistance);
                 lastHitPoint = hitPoint;
                 lastReflectedDirection = reflectedDirection;
 
@@ -104,6 +104,7 @@ public class LightReflection : MonoBehaviour
 
                 if (Physics.Raycast(reflectedRay, out targetHit, reflectedBeamLength, raycastLayerMask))
                 {
+                    Debug.Log(maxDistance);
                     float beamLength = targetHit.distance;
                     if (beamLight != null)
                     {
