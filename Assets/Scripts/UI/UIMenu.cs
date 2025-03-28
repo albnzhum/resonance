@@ -15,7 +15,7 @@ public class UIMenu : MonoBehaviour
 
     public void StartGame()
     {
-        StartCoroutine(LoadManagerScene());
+        StartCoroutine(LoadAsyncScene());
     }
 
     IEnumerator LoadManagerScene()
@@ -37,10 +37,10 @@ public class UIMenu : MonoBehaviour
         //asyncLoad.allowSceneActivation = false; 
 
         // Асинхронно загружаем сцену с анимацией перехода
-        YieldInstruction sceneLoading = SceneLoadAsync.LoadScene("Environment_Free", LoadSceneMode.Additive);
+        YieldInstruction sceneLoading = SceneLoadAsync.LoadScene("0_Tutorial", LoadSceneMode.Additive);
 
         yield return sceneLoading;
-
+        SceneManager.UnloadSceneAsync("Menu");
 
         //while (asyncLoad.progress < 0.9f)
         //{

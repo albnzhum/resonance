@@ -20,7 +20,7 @@ public class FocusTriggerExit : MonoBehaviour, ITutorialAction
                 isCompleted = false;
                 break;
             case FocusState.Water:
-                StartCoroutine(DelayBeforeNextStage());
+                isCompleted = false;
                 break;
             case FocusState.Leaves:
                 isCompleted = false;
@@ -30,7 +30,7 @@ public class FocusTriggerExit : MonoBehaviour, ITutorialAction
     
     private IEnumerator DelayBeforeNextStage()
     {
-        yield return new WaitForSeconds(4f); // Ждём 4 секунды
+        yield return new WaitForSeconds(10f); // Ждём 4 секунды
         
         OnActionCompleted?.Invoke();
     }

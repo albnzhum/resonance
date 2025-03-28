@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,11 +18,21 @@ public class Bird : MonoBehaviour
     [SerializeField] float heightOffset = 0.2f;
     [SerializeField] Transform pawsPoint;
     [SerializeField] LeverMechanism lever;
+    
+    [SerializeField] BirdCameraFollow birdCameraFollow;
+
+    public Action OnStartFly;
+    public Action OnEndFly;
 
     public void TakeOff()
     {
         _animationController.onTakeOffEnd += StartFly;
         _animationController.TakeOff();
+        
+        if (birdCameraFollow != null)
+        {
+            birdCameraFollow.FollowTarget(transform);
+        }
     }
 
     public void StartFly()
@@ -51,6 +62,8 @@ public class Bird : MonoBehaviour
             if (destination.DelayOnTarget > 0)
                 yield return new WaitForSecondsRealtime(destination.DelayOnTarget);
         }
+        OnStartFly?.Invoke();
+        
         _animationController.onLand += Land;
         _animationController.Land();
     }
@@ -84,6 +97,13 @@ public class Bird : MonoBehaviour
         StopAllCoroutines();
         lever.LowerLeverByBird(this);
         _animationController.onLandEnd -= LandOnLever;
+        
+        if (birdCameraFollow != null)
+        {
+            birdCameraFollow.StopFollowing();
+        }
+        
+        OnEndFly?.Invoke();
     }
 
 }

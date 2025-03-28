@@ -52,6 +52,7 @@ public class FocusTrigger : MonoBehaviour, ITutorialAction
 
         isCompleted = true;
         gameStateManager.ChangeState(GameState.Gameplay);
+        OnActionCompleted?.Invoke();
     }
 
     public event Action OnActionCompleted;
@@ -65,7 +66,6 @@ public class FocusTrigger : MonoBehaviour, ITutorialAction
                 isCompleted = false;
                 break;
             case FocusState.Water:
-                OnActionCompleted?.Invoke();
                 gameStateManager.ChangeState(GameState.UI);
                 FocusOnDistantObject();
                 break;

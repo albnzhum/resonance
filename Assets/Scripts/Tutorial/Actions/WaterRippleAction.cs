@@ -4,6 +4,7 @@ using UnityEngine;
 public class WaterRippleAction : MonoBehaviour, ITutorialAction
 {
     [SerializeField] private BeamTrigger beamTrigger;
+    [SerializeField] private LightReflection lightReflection;
     public event Action OnActionCompleted;
     private bool _isCompleted = false;
 
@@ -29,7 +30,9 @@ public class WaterRippleAction : MonoBehaviour, ITutorialAction
             _isCompleted = true;
             OnActionCompleted?.Invoke();
 
-            beamTrigger.enabled = false;
+            lightReflection.DisableBeam();
+            lightReflection.enabled = false;
+
         }
     }
 }

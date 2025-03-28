@@ -28,9 +28,15 @@ public class LightReflection : MonoBehaviour
         volumetricLightBeam.SetActive(false);
     }
 
+    public void DisableBeam()
+    {
+        volumetricLightBeam.transform.position = Vector3.zero;
+        Destroy(volumetricLightBeam);
+    }
+
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject == player.gameObject)
+        if (other.gameObject == player.gameObject && volumetricLightBeam != null)
         {
             isPlayerInTrigger = true;
             if (!volumetricLightBeam.activeSelf)
@@ -44,7 +50,7 @@ public class LightReflection : MonoBehaviour
 
     void OnTriggerStay(Collider other)
     {
-        if (other.gameObject == player.gameObject)
+        if (other.gameObject == player.gameObject && volumetricLightBeam != null)
         {
             ComputeReflection();
         }
@@ -52,7 +58,7 @@ public class LightReflection : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        if (other.gameObject == player.gameObject)
+        if (other.gameObject == player.gameObject && volumetricLightBeam != null)
         {
             isPlayerInTrigger = false;
             if (volumetricLightBeam.activeSelf)
@@ -79,7 +85,6 @@ public class LightReflection : MonoBehaviour
         if (Physics.Raycast(ray, out hit, maxDistance, raycastLayerMask))
         {
             //Debug.DrawRay(transform.position, directionToPlayer, Color.red);
-            Debug.Log(maxDistance);
             if (hit.collider.gameObject == player.gameObject)
             {
                 Vector3 hitPoint = hit.point;
@@ -94,7 +99,6 @@ public class LightReflection : MonoBehaviour
                 Vector3 reflectedDirection = Vector3.Reflect(incomingDirection, normal);
                 Vector3 rotationAxis = Vector3.Cross(reflectedDirection, Vector3.up).normalized;
                 reflectedDirection = Quaternion.AngleAxis(upwardAngleAdjustment, rotationAxis) * reflectedDirection;
-                Debug.Log(maxDistance);
                 lastHitPoint = hitPoint;
                 lastReflectedDirection = reflectedDirection;
 
@@ -106,7 +110,6 @@ public class LightReflection : MonoBehaviour
 
                 if (Physics.Raycast(reflectedRay, out targetHit, reflectedBeamLength, raycastLayerMask))
                 {
-                    Debug.Log(maxDistance);
                     float beamLength = targetHit.distance;
                     if (beamLight != null)
                     {
@@ -116,7 +119,6 @@ public class LightReflection : MonoBehaviour
                     if (beamTrigger != null)
                     {
                         string targetTag = targetHit.collider.gameObject.tag;
-                        Debug.Log(targetHit.collider.gameObject.name);
 
                         switch (targetTag)
                         {

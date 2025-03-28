@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,8 @@ public class Leaves : MonoBehaviour, IInteractableTouching
     [SerializeField][Range(0, 1)] float _lowVolume;
 
     private BurningObject _burnObject;
+    
+    public Action OnInteract;
 
     private void Awake()
     {
@@ -20,7 +23,7 @@ public class Leaves : MonoBehaviour, IInteractableTouching
 
     private void Start()
     {
-        _burnObject.onBurn += _bird.TakeOff;
+        if (_burnObject != null) _burnObject.onBurn += _bird.TakeOff;
     }
 
     public void Interact(Player player)
@@ -29,6 +32,8 @@ public class Leaves : MonoBehaviour, IInteractableTouching
         {
             _audioSource.volume = _highVolume;
             _bird.TakeOff();
+            
+            OnInteract?.Invoke();
         }
         else
         {

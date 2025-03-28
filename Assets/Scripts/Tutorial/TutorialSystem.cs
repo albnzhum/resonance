@@ -2,20 +2,20 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public enum TutorialStages
 {
     Movement,
-    Light,
-    MoveTo,
-    WaterLight,
+    ShowLight,
+    MoveToLight,
+    WaterLightReflection,
     WaterRipple,
     WaterActivation,
     FindBird,
     LeavesSound,
     Empty,
-    
-    Fire,
+    BirdLanded
     
 }
 
@@ -34,10 +34,10 @@ public class TutorialSystem : MonoBehaviour
     [SerializeField] private WaterLightAction waterLightAction;
     [SerializeField] private FocusTriggerExit moveToLightAction;
     [SerializeField] private FocusTrigger levelFocusTrigger;
-    [SerializeField] private FocusTriggerExit levelExitTrigger;
-    [SerializeField] private FocusTrigger leavesTrigger;
-    [SerializeField] private FocusTriggerExit leavesExitTrigger;
-
+    [SerializeField] private LeavesSoundAction leavesSoundAction;
+    [SerializeField] private LeavesAction leavesTrigger;
+    [SerializeField] private BirdAction birdAction;
+    [SerializeField] private PortalAction birdLandedAction;
 
     private GameStateManager gameStateManager;
     
@@ -95,6 +95,7 @@ public class TutorialSystem : MonoBehaviour
         currentStage = (TutorialStages)currentStageIndex;
 
         currentAction = GetActionForStage(currentStage);
+        Debug.LogError(currentAction.ToString());
         if (currentAction == null)
         {
             Debug.LogError($"Action not found for stage {currentStage}!");
@@ -134,22 +135,24 @@ public class TutorialSystem : MonoBehaviour
         {
             case TutorialStages.Movement:
                 return moveAction;
-            case TutorialStages.Light:
+            case TutorialStages.ShowLight:
                 return lightAction;
-            case TutorialStages.MoveTo:
+            case TutorialStages.MoveToLight:
                 return moveToLightAction;
-            case TutorialStages.WaterLight:
+            case TutorialStages.WaterLightReflection:
                 return waterLightAction;
             case TutorialStages.WaterRipple:
                 return player.GetComponent<WaterRippleAction>();
             case TutorialStages.WaterActivation:
                 return levelFocusTrigger;
             case TutorialStages.FindBird:
-                return levelExitTrigger;
+                return leavesSoundAction;
             case TutorialStages.LeavesSound:
                 return leavesTrigger;
             case TutorialStages.Empty:
-                return leavesExitTrigger;
+                return birdAction;
+            case TutorialStages.BirdLanded:
+                return birdLandedAction;
             default:
                 return null;
         }

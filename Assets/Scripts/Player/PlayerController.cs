@@ -94,7 +94,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //Звук шагов при передвижении
-      /*  if (characterController.isGrounded && moveDirection.x != 0 || moveDirection.z != 0)
+        if (characterController.isGrounded && moveDirection.x != 0 || moveDirection.z != 0)
         {
             if (!_stepSound.isPlaying)
             {
@@ -104,6 +104,6 @@ public class PlayerController : MonoBehaviour
         else
         {
             _stepSound.Stop();
-        }*/
+        }
     }
 }
