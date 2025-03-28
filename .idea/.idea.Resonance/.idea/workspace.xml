@@ -5,129 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aea34c4c-5941-4b32-b514-a44044356aa6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Tutorial/Actions/BirdLandedAction.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Tutorial/Actions/BirdLandedAction.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Resonance/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Resonance/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Resonance/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Resonance/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Environment/PureMountain/Prefabs/Trees/Bush1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Environment/PureMountain/Prefabs/Trees/Bush1.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Environment/PureMountain/Prefabs/Trees/Bush2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Environment/PureMountain/Prefabs/Trees/Bush2.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Environment/PureMountain/Prefabs/Trees/Bush3.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Environment/PureMountain/Prefabs/Trees/Bush3.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/QuickOutline.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/QuickOutline/Readme.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/QuickOutline/Readme.txt.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/QuickOutline/Resources.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/QuickOutline/Resources/Materials.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/QuickOutline/Resources/Materials/OutlineFill.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/QuickOutline/Resources/Materials/OutlineFill.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/QuickOutline/Resources/Materials/OutlineMask.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/QuickOutline/Resources/Materials/OutlineMask.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/QuickOutline/Resources/Shaders.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/QuickOutline/Resources/Shaders/OutlineFill.shader" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/QuickOutline/Resources/Shaders/OutlineFill.shader.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/QuickOutline/Resources/Shaders/OutlineMask.shader" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/QuickOutline/Resources/Shaders/OutlineMask.shader.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/QuickOutline/Samples.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/QuickOutline/Samples/Materials.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/QuickOutline/Samples/Materials/Plane.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/QuickOutline/Samples/Materials/Plane.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/QuickOutline/Samples/Scenes.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/QuickOutline/Samples/Scenes/QuickOutline.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/QuickOutline/Samples/Scenes/QuickOutline.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/QuickOutline/Scripts.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/QuickOutline/Scripts/Outline.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/QuickOutline/Scripts/Outline.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Bird/Bird.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Bird/Bird.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Leaves.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Leaves.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LightEffect/LightReflection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LightEffect/LightReflection.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tutorial/Actions/FocusTrigger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tutorial/Actions/FocusTrigger.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tutorial/Actions/FocusTriggerExit.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tutorial/Actions/FocusTriggerExit.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tutorial/Actions/LeavesAction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tutorial/Actions/LeavesAction.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tutorial/Actions/WaterRippleAction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tutorial/Actions/WaterRippleAction.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tutorial/TutorialSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tutorial/TutorialSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tutorial/ZoomCamera.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tutorial/ZoomCamera.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/UIMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UIMenu.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Settings/Jura/Jura SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/Jura/Jura SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LightEffect/BeamTrigger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LightEffect/BeamTrigger.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Settings/URP/Quality/Medium_PipelineAsset.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/URP/Quality/Medium_PipelineAsset.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Settings/URP/Quality/Ultra_PipelineAsset.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/URP/Quality/Ultra_PipelineAsset.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Settings/URP/Quality/Ultra_PipelineAsset_ForwardRenderer.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/URP/Quality/Ultra_PipelineAsset_ForwardRenderer.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shaders/UniversalBlutUI.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shaders/UniversalBlutUI.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Water Ripple.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Water Ripple/Materials.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Water Ripple/Materials/Black.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Water Ripple/Materials/Black.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Water Ripple/Materials/Ripple.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Water Ripple/Materials/Ripple.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Water Ripple/Materials/White Spot.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Water Ripple/Materials/White Spot.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Water Ripple/Materials/Yellow.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Water Ripple/Materials/Yellow.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Water Ripple/Materials/vein 5 - 512x512.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Water Ripple/Materials/vein 5 - 512x512.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Water Ripple/New Terrain.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Water Ripple/New Terrain.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Water Ripple/Perfabs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Water Ripple/Perfabs/Water.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Water Ripple/Perfabs/Water.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Water Ripple/Ripple Particle System.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Water Ripple/Ripple Particle System.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Water Ripple/Scenes.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Water Ripple/Scenes/Stage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Water Ripple/Scenes/Stage/Underwater Profile.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Water Ripple/Scenes/Stage/Underwater Profile.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Water Ripple/Scripts.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Water Ripple/Scripts/NewGorillaLocomotionScripts.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Water Ripple/Scripts/NewGorillaLocomotionScripts/Player.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Water Ripple/Scripts/NewGorillaLocomotionScripts/Player.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Water Ripple/Scripts/NewGorillaLocomotionScripts/Surface.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Water Ripple/Scripts/NewGorillaLocomotionScripts/Surface.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Water Ripple/Scripts/Player.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Water Ripple/Scripts/Player.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Water Ripple/Scripts/RippleEffect.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Water Ripple/Scripts/RippleEffect.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Water Ripple/Scripts/SimpleCameraController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Water Ripple/Scripts/SimpleCameraController.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Water Ripple/Settings.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Water Ripple/Settings/SampleSceneProfile.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Water Ripple/Settings/SampleSceneProfile.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Water Ripple/Shader.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Water Ripple/Shader/Add.shader" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Water Ripple/Shader/Add.shader.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Water Ripple/Shader/LowResNormalFromHeight.shadersubgraph" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Water Ripple/Shader/LowResNormalFromHeight.shadersubgraph.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Water Ripple/Shader/My Water.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Water Ripple/Shader/My Water.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Water Ripple/Shader/Ripple test.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Water Ripple/Shader/Ripple test.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Water Ripple/Shader/Ripple test.shadergraph" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Water Ripple/Shader/Ripple test.shadergraph.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Water Ripple/Shader/RippleShader.shader" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Water Ripple/Shader/RippleShader.shader.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Water Ripple/Shader/Water Shader.shadergraph" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Water Ripple/Shader/Water Shader.shadergraph.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Water Ripple/Textures.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Water Ripple/Textures/Ripple Render Texture.renderTexture" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Water Ripple/Textures/Ripple Render Texture.renderTexture.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Water Ripple/Textures/Tropical Water.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Water Ripple/Textures/Tropical Water.jpg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Water Ripple/Underwater Effect.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Water Ripple/Underwater Effect.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Water Ripple/Underwater.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Water Ripple/Underwater.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Water Ripple/Water.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Water Ripple/Water.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Water Ripple/WaterRipple.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Water Ripple/WaterRipple.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/0_Tutorial.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/0_Tutorial.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Level5/DemoScene.lighting" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Level5/DemoScene.lighting" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Manager.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Manager.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Menu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,6 +22,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/DecompilerCache/decompiler/c648d86e9013479d818310c5918e31a4176600/31/6cabf7cd/Scene.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/DecompilerCache/decompiler/c648d86e9013479d818310c5918e31a4176600/71/f00e089f/Camera.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/PauseController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Tutorial/Actions/FocusTrigger.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Tutorial/Actions/FocusTriggerExit.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Tutorial/Actions/LightAction.cs" root0="FORCE_HIGHLIGHTING" />
@@ -153,7 +36,6 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Tutorial/ZoomCamera.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/ColorTextVisual.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/LoadingScreen/RandomLoadingText.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unify.unified-universal-blur@937dbf71a0/Runtime/UniversalBlurPass.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@14.0.11/Runtime/ScriptableRendererData.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.visualeffectgraph@14.0.11/Editor/Data/VFXData.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -183,7 +65,7 @@
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="$PROJECT_DIR$/../TestBuild\Resonance.exe" />
+      <option name="EXE_PATH" value="$PROJECT_DIR$/../Resonance_Build\Resonance.exe" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="D:\TestBuild" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -249,7 +131,7 @@
       <workItem from="1743011091617" duration="10969000" />
       <workItem from="1743052222751" duration="2245000" />
       <workItem from="1743096928874" duration="17969000" />
-      <workItem from="1743171822060" duration="12904000" />
+      <workItem from="1743171822060" duration="14101000" />
     </task>
     <servers />
   </component>

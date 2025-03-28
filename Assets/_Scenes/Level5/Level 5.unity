@@ -109561,6 +109561,67 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -6768867687794398872, guid: 101f39be19b1e3441b531ed29cea1acf, type: 3}
+--- !u!1001 &975814152
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 548796415172155522, guid: 5ae47a02fa73b2f479489466860e8726, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -81.41573
+      objectReference: {fileID: 0}
+    - target: {fileID: 548796415172155522, guid: 5ae47a02fa73b2f479489466860e8726, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 16.216536
+      objectReference: {fileID: 0}
+    - target: {fileID: 548796415172155522, guid: 5ae47a02fa73b2f479489466860e8726, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -271.75754
+      objectReference: {fileID: 0}
+    - target: {fileID: 548796415172155522, guid: 5ae47a02fa73b2f479489466860e8726, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 548796415172155522, guid: 5ae47a02fa73b2f479489466860e8726, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 548796415172155522, guid: 5ae47a02fa73b2f479489466860e8726, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 548796415172155522, guid: 5ae47a02fa73b2f479489466860e8726, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 548796415172155522, guid: 5ae47a02fa73b2f479489466860e8726, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 548796415172155522, guid: 5ae47a02fa73b2f479489466860e8726, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 548796415172155522, guid: 5ae47a02fa73b2f479489466860e8726, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5371342015324771424, guid: 5ae47a02fa73b2f479489466860e8726, type: 3}
+      propertyPath: m_Name
+      value: PauseController
+      objectReference: {fileID: 0}
+    - target: {fileID: 6250361903276958036, guid: 5ae47a02fa73b2f479489466860e8726, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5ae47a02fa73b2f479489466860e8726, type: 3}
 --- !u!1 &978271351
 GameObject:
   m_ObjectHideFlags: 0
@@ -656344,3 +656405,4 @@ SceneRoots:
   - {fileID: 240018927}
   - {fileID: 1953132992}
   - {fileID: 1794581943}
+  - {fileID: 975814152}

@@ -33390,6 +33390,67 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6600631136331952967, guid: 73e234dd4cee1e84d87b2efb5212ca68, type: 3}
   m_PrefabInstance: {fileID: 3810756732119128440}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3940897705577531878
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 548796415172155522, guid: 5ae47a02fa73b2f479489466860e8726, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -81.41573
+      objectReference: {fileID: 0}
+    - target: {fileID: 548796415172155522, guid: 5ae47a02fa73b2f479489466860e8726, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 16.216536
+      objectReference: {fileID: 0}
+    - target: {fileID: 548796415172155522, guid: 5ae47a02fa73b2f479489466860e8726, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -271.75754
+      objectReference: {fileID: 0}
+    - target: {fileID: 548796415172155522, guid: 5ae47a02fa73b2f479489466860e8726, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 548796415172155522, guid: 5ae47a02fa73b2f479489466860e8726, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 548796415172155522, guid: 5ae47a02fa73b2f479489466860e8726, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 548796415172155522, guid: 5ae47a02fa73b2f479489466860e8726, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 548796415172155522, guid: 5ae47a02fa73b2f479489466860e8726, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 548796415172155522, guid: 5ae47a02fa73b2f479489466860e8726, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 548796415172155522, guid: 5ae47a02fa73b2f479489466860e8726, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5371342015324771424, guid: 5ae47a02fa73b2f479489466860e8726, type: 3}
+      propertyPath: m_Name
+      value: PauseController
+      objectReference: {fileID: 0}
+    - target: {fileID: 6250361903276958036, guid: 5ae47a02fa73b2f479489466860e8726, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5ae47a02fa73b2f479489466860e8726, type: 3}
 --- !u!4 &4083501149994951927
 Transform:
   m_ObjectHideFlags: 0
@@ -38643,6 +38704,7 @@ MonoBehaviour:
   waterSmokeParticles: {fileID: 127892153}
   waterOpenObj:
   - {fileID: 127892154}
+  waterSmokeAudio: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -38683,3 +38745,4 @@ SceneRoots:
   - {fileID: 583958427}
   - {fileID: 1174939652634315571}
   - {fileID: 1184646991}
+  - {fileID: 3940897705577531878}

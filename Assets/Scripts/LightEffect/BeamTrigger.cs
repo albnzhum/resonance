@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,8 @@ public class BeamTrigger : MonoBehaviour
     [SerializeField] List<GameObject> waterOpenObj;
     [SerializeField] AudioSource waterSmokeAudio;
     private bool waterSmoke;
+    
+    public Action OnWaterDestroyed;
 
     public void OnWaterHit(GameObject waterObject)
     {
@@ -46,5 +49,7 @@ public class BeamTrigger : MonoBehaviour
         {
             obj.SetActive(false);
         }
+        
+        OnWaterDestroyed?.Invoke();
     }
 }
