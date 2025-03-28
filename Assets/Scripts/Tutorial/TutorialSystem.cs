@@ -52,6 +52,8 @@ public class TutorialSystem : MonoBehaviour
 
     private void Start()
     {
+        //SkipTutorial();
+        
         gameStateManager = GameStateManager.Instance;
 
         _tutorial.SetActive(true);
@@ -61,6 +63,7 @@ public class TutorialSystem : MonoBehaviour
     public void SkipTutorial()
     {
         isCompleted = true;
+        gameStateManager.ChangeState(GameState.Gameplay);
         EndTutorial();
     }
 

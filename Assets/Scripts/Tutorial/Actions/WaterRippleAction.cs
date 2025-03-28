@@ -3,23 +3,23 @@ using UnityEngine;
 
 public class WaterRippleAction : MonoBehaviour, ITutorialAction
 {
+    [SerializeField] private BeamTrigger beamTrigger;
     public event Action OnActionCompleted;
     private bool _isCompleted = false;
+
+    private void Start()
+    {
+        beamTrigger.OnWaterDestroyed += SimulateRipple;
+    }
+
+    private void OnDisable()
+    {
+        beamTrigger.OnWaterDestroyed -= SimulateRipple;
+    }
 
     public void StartAction()
     {
         _isCompleted = false;
-    }
-
-    private void Update()
-    {
-        if (!_isCompleted)
-        {
-            if (Input.GetKeyDown(KeyCode.F))
-            {
-                SimulateRipple();
-            }
-        }
     }
 
     public void SimulateRipple() // Вызывается при ряби воды
@@ -28,6 +28,8 @@ public class WaterRippleAction : MonoBehaviour, ITutorialAction
         {
             _isCompleted = true;
             OnActionCompleted?.Invoke();
+
+            beamTrigger.enabled = false;
         }
     }
 }

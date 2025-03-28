@@ -5,17 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aea34c4c-5941-4b32-b514-a44044356aa6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Environment/PureMountain/Models/TerrainMountain.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Environment/PureMountain/Models/TerrainMountain.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Resonance/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Resonance/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Resonance/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Resonance/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Environment/PureMountain/Prefabs/Rocks/Boulder2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Environment/PureMountain/Prefabs/Rocks/Boulder2.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Environment/PureMountain/Prefabs/Rocks/Boulder3.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Environment/PureMountain/Prefabs/Rocks/Boulder3.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Environment/PureMountain/Prefabs/Rocks/Cliff1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Environment/PureMountain/Prefabs/Rocks/Cliff1.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Environment/PureMountain/Prefabs/Rocks/Cliff2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Environment/PureMountain/Prefabs/Rocks/Cliff2.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Environment/PureMountain/Prefabs/Rocks/Cliff3.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Environment/PureMountain/Prefabs/Rocks/Cliff3.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Environment/PureMountain/Prefabs/Rocks/Cliff5.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Environment/PureMountain/Prefabs/Rocks/Cliff5.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Environment/PureMountain/Prefabs/Rocks/Cliff6.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Environment/PureMountain/Prefabs/Rocks/Cliff6.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Environment/PureMountain/Prefabs/Rocks/Cliff7.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Environment/PureMountain/Prefabs/Rocks/Cliff7.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Environment/PureMountain/Prefabs/Rocks/Cliff8.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Environment/PureMountain/Prefabs/Rocks/Cliff8.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LightEffect/BeamTrigger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LightEffect/BeamTrigger.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/LightEffect/LightReflection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LightEffect/LightReflection.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tutorial/Actions/WaterRippleAction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tutorial/Actions/WaterRippleAction.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tutorial/Tutorial.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tutorial/Tutorial.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tutorial/TutorialSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tutorial/TutorialSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Settings/Jura/Jura SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/Jura/Jura SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tutorial/ZoomCamera.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tutorial/ZoomCamera.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/URP/Quality/Medium_PipelineAsset.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/URP/Quality/Medium_PipelineAsset.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/URP/Quality/Ultra_PipelineAsset.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/URP/Quality/Ultra_PipelineAsset.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/URP/Universal Render Pipeline Asset_Renderer.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/URP/Universal Render Pipeline Asset_Renderer.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Water Ripple/Perfabs/Water.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Water Ripple/Perfabs/Water.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Water Ripple/Scenes/Stage/Underwater Profile.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Water Ripple/Scenes/Stage/Underwater Profile.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scenes/0_Tutorial.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/0_Tutorial.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Level5/Level 5.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Level5/Level 5.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/test.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/test.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,7 +144,7 @@
       <workItem from="1742999582897" duration="5515000" />
       <workItem from="1743011091617" duration="10969000" />
       <workItem from="1743052222751" duration="2245000" />
-      <workItem from="1743096928874" duration="11471000" />
+      <workItem from="1743096928874" duration="17969000" />
     </task>
     <servers />
   </component>

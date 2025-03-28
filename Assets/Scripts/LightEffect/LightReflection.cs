@@ -78,6 +78,8 @@ public class LightReflection : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, maxDistance, raycastLayerMask))
         {
+            //Debug.DrawRay(transform.position, directionToPlayer, Color.red);
+            Debug.Log(maxDistance);
             if (hit.collider.gameObject == player.gameObject)
             {
                 Vector3 hitPoint = hit.point;
@@ -114,6 +116,7 @@ public class LightReflection : MonoBehaviour
                     if (beamTrigger != null)
                     {
                         string targetTag = targetHit.collider.gameObject.tag;
+                        Debug.Log(targetHit.collider.gameObject.name);
 
                         switch (targetTag)
                         {

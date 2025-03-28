@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6600631134399683105}
   - component: {fileID: 6600631134399683107}
   - component: {fileID: 6600631134399683106}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Ripple Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -331,6 +331,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaterSmoke
       objectReference: {fileID: 0}
+    - target: {fileID: 3649257828900594181, guid: 6e477731f3476cd4f946272ef20b5d71, type: 3}
+      propertyPath: m_Layer
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6161741792154286390, guid: 6e477731f3476cd4f946272ef20b5d71, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.01
@@ -440,6 +444,10 @@ PrefabInstance:
     - target: {fileID: 9019597122577717084, guid: 4c2a21e97fd41dc44b64067eaa21ad8d, type: 3}
       propertyPath: m_Name
       value: Underwater
+      objectReference: {fileID: 0}
+    - target: {fileID: 9019597122577717084, guid: 4c2a21e97fd41dc44b64067eaa21ad8d, type: 3}
+      propertyPath: m_Layer
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 9019597122577717086, guid: 4c2a21e97fd41dc44b64067eaa21ad8d, type: 3}
       propertyPath: m_Size.x
