@@ -44,6 +44,8 @@ public class DustEffect : MonoBehaviour
 
             yield return null;
         }
+
+        raised = false;
     }
 
     private void CheckDustySurfaces()
@@ -75,7 +77,7 @@ public class DustEffect : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.color = new Color(255, 255, 0, 0.3f);
+        Gizmos.color = new Color(255, 255, 255, 0.05f);
         Gizmos.DrawSphere(transform.position, playerCheckRadius);
     }
 }
