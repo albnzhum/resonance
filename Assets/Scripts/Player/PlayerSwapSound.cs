@@ -29,6 +29,9 @@ public class PlayerSwapSound : MonoBehaviour
 
     private void OnDestroy()
     {
-        playerController.SwapSoundFootstepSound(swapFrom);
+        if (playerController != null)
+        {
+            playerController.SwapSoundFootstepSound(swapFrom);
+        }
     }
 }
