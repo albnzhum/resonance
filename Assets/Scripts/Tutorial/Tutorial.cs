@@ -22,7 +22,15 @@ public class Tutorial : MonoBehaviour
 
     public void Close()
     {
-        animator.SetBool("IsClose", true);
+        if (animator != null)
+        {
+            animator.SetBool("IsClose", true);
+        }
+        else
+        {
+            CloseObject();
+        }
+        
         isCompleted = true;
     }
 

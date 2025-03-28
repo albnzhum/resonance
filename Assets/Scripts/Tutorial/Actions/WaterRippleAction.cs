@@ -11,6 +11,17 @@ public class WaterRippleAction : MonoBehaviour, ITutorialAction
         _isCompleted = false;
     }
 
+    private void Update()
+    {
+        if (!_isCompleted)
+        {
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                SimulateRipple();
+            }
+        }
+    }
+
     public void SimulateRipple() // Вызывается при ряби воды
     {
         if (!_isCompleted)
