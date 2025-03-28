@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,9 +6,8 @@ public class BeamTrigger : MonoBehaviour
 {
     [SerializeField] ParticleSystem waterSmokeParticles;
     [SerializeField] List<GameObject> waterOpenObj;
+    [SerializeField] AudioSource waterSmokeAudio;
     private bool waterSmoke;
-
-    public Action OnWaterDestroyed;
 
     public void OnWaterHit(GameObject waterObject)
     {
@@ -34,9 +32,11 @@ public class BeamTrigger : MonoBehaviour
 
     private IEnumerator WaterDestroy(Material waterMaterial, GameObject waterObject)
     {
-        while (waterMaterial.GetFloat("_DepthFade") > 0f)
+        waterSmokeAudio.Play();
+
+        while (waterMaterial.GetFloat("Vector1_b4651e1c4a334bef8c36a54b0b6c423c") > 0f)
         {
-            waterMaterial.SetFloat("_DepthFade", waterMaterial.GetFloat("_DepthFade") - 0.1f);
+            waterMaterial.SetFloat("Vector1_b4651e1c4a334bef8c36a54b0b6c423c", waterMaterial.GetFloat("Vector1_b4651e1c4a334bef8c36a54b0b6c423c") - 0.1f);
             yield return new WaitForSeconds(0.5f);
         }
 
@@ -46,7 +46,5 @@ public class BeamTrigger : MonoBehaviour
         {
             obj.SetActive(false);
         }
-        
-        OnWaterDestroyed?.Invoke();
     }
 }

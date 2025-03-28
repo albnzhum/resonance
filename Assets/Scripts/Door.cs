@@ -2,11 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Chest : MonoBehaviour, IInteractable
+public class Door : MonoBehaviour, IInteractable
 {
     [SerializeField] KeyController keyController;
-
-    string _interactText = "Открыть сундук";
+    string _interactText = "Открыть дверь (нужен ключ)";
 
     public string GetInteractText()
     {
@@ -15,10 +14,9 @@ public class Chest : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        if (keyController != null)
+        if (keyController.GetKey())
         {
-            keyController.SetKey();
+            SceneLoadAsync.LoadScene(0);
         }
     }
-
 }
